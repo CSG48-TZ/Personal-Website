@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>admin</title>
+    <style>
+        body {
+          margin: 0;
+          font-family: Arial, Helvetica, sans-serif;
+        }
+      
+        .mainbody{
+            padding-left: 50px;
+            padding-right: 50px;
+            text-align: justify;
+            height: 200px;
+            width: 280px;
+            position: relative;
+        }
+
+        .login{
+            margin: 0;
+            position: absolute;
+            left: 50%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+
+        .topnav {
+            overflow: hidden;
+            background-color: #333;
+            display: flex;
+            justify-content: center;
+        }
+      
+        .topnav a {
+            float: left;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+      
+        .topnav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+      
+        .topnav a.active {
+            background-color: #04AA6D;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="topnav">
+        <div>
+            <a href="http://localhost:8080/Assignment3/Zhang_40111095/index.php">Home</a>
+        </div>
+        <div>
+            <a href="http://localhost:8080/Assignment3/Zhang_40111095/resume.php">Resume</a>
+        </div>
+        <div>
+            <a href="http://localhost:8080/Assignment3/Zhang_40111095/projects.php">Projects</a>
+        </div>
+        <div>
+            <a href="contact.html">Contact</a>
+        </div>
+        <div>
+            <a href="http://localhost:8080/Assignment3/Zhang_40111095/social.php">Social</a>
+        </div>
+        <div>
+            <a class="active" href="admin.html">Admin</a>
+        </div>
+    </div>
+
+    <div class="mainbody" style="padding-top: 20px; padding-bottom: 30px;">
+        <h6 style="color: brown;">*Please input your user name below</h6>
+        <label for="username">User name: </label>
+        <input type="text" name="username" id="username"/>
+        <br/>
+        <h6 style="color: brown;">*Please input your password below</h6>
+        <label for="password">Password: </label>
+        <input type="text" name="password" id="password"/>
+        <p id="error" style="color: rgb(219, 10, 10);"></p>
+        <br/>
+        <br/>
+        <div class="login" style="padding-top: 50px;">
+            <input type="button" value="Login" onclick="processLogin()"/>
+        </div>
+    </div>
+    <script>
+        var validUserName = "TWZ";
+        var validPassword = "123456";
+        function processLogin(){
+            var inputName = document.getElementById('username').value;
+            var inputPassword = document.getElementById('password').value;
+            if(inputName === validUserName && inputPassword === validPassword){
+                sessionStorage.setItem('Username', inputName);
+                sessionStorage.setItem('Password', inputPassword);
+                const day = new Date();
+                sessionStorage.setItem('Login Time', day.toString());
+                sessionStorage.setItem('Login User-Agent', navigator.userAgent);
+                location.href = "C:\\xampp\\htdocs\\Assignment3\\admin_Zhang_40111095\\adminIndex.html";
+                return false;
+            }else{
+                document.getElementById('error').innerHTML = "Incorrect username or password. \nPlease check.";
+            }
+            
+        }
+    </script>
+</body>
+</html>
