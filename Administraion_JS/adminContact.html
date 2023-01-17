@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>contact</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+      
+        .mainbody{
+            padding-left: 50px;
+            padding-right: 50px;
+        }
+
+        .topnav {
+            overflow: hidden;
+            background-color: #333;
+            display: flex;
+            justify-content: center;
+        }
+      
+       .topnav a {
+            float: left;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-size: 17px;
+       }
+      
+       .topnav a:hover {
+            background-color: #ddd;
+            color: black;
+       }
+      
+       .topnav a.active {
+            background-color: #04AA6D;
+            color: white;
+       }
+    </style>
+</head>
+<body>
+    <div class="topnav">
+        <div>
+            <a href="adminIndex.html">Home</a>
+        </div>
+        <div>
+            <a href="adminResume.html">Resume</a>
+        </div>
+        <div>
+            <a href="adminProjects.html">Projects</a>
+        </div>
+        <div>
+            <a class="active" href="adminContact.html">Contact</a>
+        </div>
+        <div>
+            <a href="adminSocial.html">Social</a>
+        </div>
+        <div>
+            <a href="logout.html">Admin</a>
+        </div>
+    </div>
+
+    <br/>
+    <table class="mainbody">
+
+        <tr><td colspan="4" style="font-weight: bold;">Display Window:</td></tr>
+
+        <tr>
+
+            <td colspan="4">
+                <textarea id="dvCSV" cols="100" rows="25"></textarea>
+            </td>
+
+        </tr>
+
+        <tr>
+
+            <td style="text-align:right;">Select a File to Upload:</td>
+
+            <td><input type="file" id="uploadFile"></td>
+
+            <td>&nbsp;<td>
+
+        </tr>
+
+        <tr>
+
+            <td>&nbsp;</td>
+
+            <td><input type="submit" onclick="load4rmFile()" value="ReadMessage"/></td>
+
+            <td>&nbsp;<td>
+
+        </tr>
+
+    </table>
+
+    <script>
+         function load4rmFile() {
+
+            var uploadFile = document.getElementById("uploadFile").files[0];
+            var fileReader = new FileReader();
+
+            fileReader.onload = function(fileLoadedEvent) {
+
+                var str = fileLoadedEvent.target.result;
+                document.getElementById("dvCSV").innerHTML = str;
+
+            };
+
+            fileReader.readAsText(uploadFile, "UTF-8");
+
+        }
+    </script>
+</body>
+</html>

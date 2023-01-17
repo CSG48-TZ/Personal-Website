@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>adminLogout</title>
+    <style>
+        body {
+          margin: 0;
+          font-family: Arial, Helvetica, sans-serif;
+        }
+      
+        .mainbody{
+            padding-left: 50px;
+            padding-right: 50px;
+            text-align: center;
+        }
+
+        .login{
+            margin: 0;
+            position: absolute;
+            left: 50%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+
+        .topnav {
+            overflow: hidden;
+            background-color: #333;
+            display: flex;
+            justify-content: center;
+        }
+      
+        .topnav a {
+            float: left;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+      
+        .topnav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+      
+        .topnav a.active {
+            background-color: #04AA6D;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="topnav">
+        <div>
+            <a href="adminIndex.html">Home</a>
+        </div>
+        <div>
+            <a href="adminResume.html">Resume</a>
+        </div>
+        <div>
+            <a href="adminProjects.html">Projects</a>
+        </div>
+        <div>
+            <a href="adminContact.html">Contact</a>
+        </div>
+        <div>
+            <a href="adminSocial.html">Social</a>
+        </div>
+        <div>
+            <a class="active" href="logout.html">Admin</a>
+        </div>
+    </div>
+
+    <div class="mainbody" style="padding-top: 20px; padding-bottom: 30px;">
+        <!--Help for debug-->
+        <!--
+        <input type="submit" onclick="init()" value="add"/><br/>
+        <button onclick="isEmpty()">
+            Checking if Empty
+        </button>
+        <p id="isEmpty"></p> -->
+        <input type="submit" value="Logout" onclick="processLogout()">
+    </div>
+    <script>
+        /* 
+        function init() { //Help for debug
+            sessionStorage.setItem('mode','dark');
+            sessionStorage.setItem('try','see');
+            sessionStorage.setItem('final','let');
+        }
+        */
+    
+        function processLogout(){
+            sessionStorage.clear();
+        }
+    
+        /*
+        function isEmpty() { //Help for debug
+            // If session storage is empty
+            if (sessionStorage.length == 0)
+                document.getElementById('isEmpty')
+                    .innerText = 'It is empty';
+            else
+                document.getElementById('isEmpty')
+                    .innerText = 'It is not empty';
+        }
+        */
+    </script>
+</body>
+</html>
